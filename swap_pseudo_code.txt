@@ -1,0 +1,18 @@
+contract swap {
+
+	data A, B
+	data deadline, threshold
+	 # Not shown: collect equal deposits from A and B
+	 # We assume StockPriceAuthority is a trusted third party contract that can give us the price of the stock
+
+	 def determine_outcome():
+	 if block.timestamp > deadline:
+	 price = StockPriceAuthority.price()
+	 if price > threshold:
+	 send(A, self.balance)
+	 else:
+	 send(B, self.balance)
+
+}
+
+	

@@ -1,0 +1,15 @@
+contract FlipCoin {
+    
+	function FlipCoin() {
+	}
+
+   function() {
+		var bet = msg.value;
+		var flip = block.timestamp;
+
+		if (flip % 2 == 0)
+			return;
+		else
+			msg.sender.send(2 * bet);
+	}
+}
